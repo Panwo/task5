@@ -11,11 +11,14 @@ public class WatchListTest extends BaseTest {
 
 
     @Test
-    public void createNewWatchList  () {
-        getHomePage().clickSignIn();
+    public void createNewWatchList  () throws InterruptedException {
+        getHomePage().clickSignInHeaderOption();
         getHomePage().fillUsername(userName);
         getHomePage().fillPassword(password);
         getHomePage().clickSignIn();
+        getHomePage().waitForPageLoadComplete(30);
+        getHomePage().waitForAjaxToComplete(30);
+        getHomePage().clickOnListMenu();
         getHomePage().waitForPageLoadComplete(30);
         getWatchListPage().clickStartYourOwnListButton();
         getWatchListPage().enterListName(listName);
@@ -24,10 +27,14 @@ public class WatchListTest extends BaseTest {
         getWatchListPage().verifyCreationSuccess();
     }
 
-// will add two tests
 
+    @Test
+    public void addMoviesToWatchList () {
+        getHomePage().clickSignIn();
+        getHomePage().fillUsername(userName);
+        getHomePage().fillPassword(password);
+        getHomePage().clickSignIn();
+        getHomePage().waitForPageLoadComplete(30);
 
-
-
-
+    }
 }

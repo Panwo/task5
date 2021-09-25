@@ -18,6 +18,10 @@ public class HomePage extends BasePage {
         signInButton.click();
     }
 
+    public void clickSignInHeaderOption () {
+        signInButtonHeader.click();
+    }
+
     public void fillUsername(String username) {
        userNameField.clear();
        userNameField.sendKeys(username);
@@ -29,12 +33,16 @@ public class HomePage extends BasePage {
     }
 
     public void clickOnListMenu () {
+        waitVisibilityOfElement(3000, listsMenu);
         listsMenu.click();
     }
+
+
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
+
 
 
 }

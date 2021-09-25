@@ -8,11 +8,11 @@ public class WatchListsPage extends BasePage {
 
     @FindBy(xpath = "//a[contains(.,'Start your own list')]")
     private WebElement createYourOwnListButton;
-    @FindBy(xpath = "//input[contains(@class,'field focus-ring')]")
+    @FindBy(xpath = "//input[@name='name']")
     private WebElement listName;
     @FindBy(xpath = "//input[contains(@placeholder,'Enter name of film...')]")
     private WebElement addAFilmField;
-    @FindBy(xpath = "//input[contains(@class,'field ac_input focus-ring')]")
+    @FindBy(xpath = "//a[@class='button -action button-action right'][contains(.,'Save')]")
     private WebElement saveButton;
     @FindBy(xpath = "//span[contains(@class,'directors')]")
     private WebElement selectFirstSuggestion;
@@ -20,6 +20,7 @@ public class WatchListsPage extends BasePage {
     private WebElement successMessage;
 
     public void clickStartYourOwnListButton () {
+        waitVisibilityOfElement(30, createYourOwnListButton);
        createYourOwnListButton.click();
     }
 
@@ -30,6 +31,7 @@ public class WatchListsPage extends BasePage {
 
     public void enterFilmName (String filmName) {
          addAFilmField.sendKeys(filmName);
+         waitVisibilityOfElement(30, selectFirstSuggestion);
          selectFirstSuggestion.click();
     }
 
@@ -38,6 +40,7 @@ public class WatchListsPage extends BasePage {
     }
 
     public void verifyCreationSuccess () {
+        waitVisibilityOfElement(30, successMessage);
         successMessage.isDisplayed();
     }
 

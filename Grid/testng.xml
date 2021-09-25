@@ -4,11 +4,10 @@
     <test name="tests.SmokeTestsChrome" parallel="methods" thread-count="3">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.SmokeTests">
+            <class name="tests.WatchListTest">
                 <methods>
-                    <include name="checkMainComponentsOnHomePage"/>
-                    <include name="checkWishList"/>
-                    <include name="checkAddToCart"/>
+                    <include name="createNewWatchList"/>
+                    <include name="addMoviesToWatchList"/>
                 </methods>
             </class>
         </classes>
@@ -17,11 +16,10 @@
     <test name="tests.SmokeTestsFirefox" parallel="methods" thread-count="3">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="tests.SmokeTests">
+            <class name="tests.WatchListTest">
                 <methods>
-                    <include name="checkMainComponentsOnHomePage"/>
-                    <include name="checkWishList"/>
-                    <include name="checkAddToCart"/>
+                    <include name="createNewWatchList"/>
+                    <include name="addMoviesToWatchList"/>
                 </methods>
             </class>
         </classes>

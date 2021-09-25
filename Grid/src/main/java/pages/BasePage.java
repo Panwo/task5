@@ -13,6 +13,8 @@ public class BasePage {
     WebDriver driver;
 
     @FindBy(xpath = "//a[contains(.,'Sign In')]")
+    protected WebElement signInButtonHeader;
+    @FindBy(xpath = "//input[contains(@value,'Sign in')]")
     protected WebElement signInButton;
     @FindBy(xpath = "//input[contains(@name,'username')]")
     protected WebElement userNameField;
